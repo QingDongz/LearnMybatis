@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 引用配置文件 -->
+    <properties resource="jdbc.properties"/>
+    <!-- 别名 -->
+    <typeAliases>
+        <typeAlias  alias="user" type="cn.summerwaves.domain.User"/>
+    </typeAliases>
+    <!-- 环境参数配置 -->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 具体的mapper文件地址 -->
+    <mappers>
+        <mapper resource="cn/summerwaves/mapper/UserMapper.xml"/>
+    </mappers>
+</configuration>
